@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Hello</title>
+</h:head>
+
+<h:body>
+	<h:form id="helloForm" prependId="false">
+		<p:messages id="msgs" />
+		<p:panel header="indexPanel">
+			<h:panelGrid id="indexPanelGrid" columns="2" cellpadding="4">
+				<h:outputText value="First Name: " />
+				<p:inputText id="firstName" value="#{hello.firstName}">
+					<f:validateLength minimum="2" />
+				</p:inputText>
+				<h:outputText value="Last Name: " />
+				<p:inputText id="lastName" value="#{hello.lastName}">
+					<f:validateLength minimum="2" />
+				</p:inputText>
+			</h:panelGrid>
+			<p:commandButton id="greetingBtn" value="Submit"
+				update="indexPanelGrid greeting" oncomplete="PF('greetingDialog').show()" />
+		</p:panel>
+
+		<p:dialog id="greetingDlg" header="Greeting"
+			widgetVar="greetingDialog" modal="true" resizable="false">
+			<h:panelGrid id="greeting" columns="1" cellpadding="4">
+				<h:outputText value="#{hello.showGreeting()}" />
+			</h:panelGrid>
+		</p:dialog>
+
+	</h:form>
+</h:body>
+
+</html>
