@@ -2,6 +2,8 @@ package com.example.view;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -21,7 +23,7 @@ public class HelloBean {
 	private String lastName;
 
 	/**
-	 *  初期化
+	 * 初期化
 	 */
 	@PostConstruct
 	public void init() {
@@ -31,7 +33,11 @@ public class HelloBean {
 	public String showGreeting() {
 		System.out.println("called showGreeting");
 		System.out.println("fn: " + firstName + ":  ln:  " + lastName);
-		return "Hello " + getFirstName() + " " + getLastName() + "!!";
+
+		String msgs = "Hello " + firstName + " " + lastName + "!!!";
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, msgs, null));
+
+		return "";
 	}
 
 	public String getFirstName() {

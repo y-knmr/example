@@ -12,7 +12,9 @@
 
 <h:body>
 	<h:form id="helloForm" prependId="false">
-		<p:messages id="msgs" />
+		<p:messages id="msgs" showSummary="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
 		<p:panel header="indexPanel">
 			<h:panelGrid id="indexPanelGrid" columns="2" cellpadding="4">
 				<h:outputText value="First Name: " />
@@ -25,15 +27,8 @@
 				</p:inputText>
 			</h:panelGrid>
 			<p:commandButton id="greetingBtn" value="Submit"
-				update="indexPanelGrid greeting" oncomplete="PF('greetingDialog').show()" />
+				update="indexPanelGrid" action="#{hello.showGreeting}" />
 		</p:panel>
-
-		<p:dialog id="greetingDlg" header="Greeting"
-			widgetVar="greetingDialog" modal="true" resizable="false">
-			<h:panelGrid id="greeting" columns="1" cellpadding="4">
-				<h:outputText value="#{hello.showGreeting()}" />
-			</h:panelGrid>
-		</p:dialog>
 
 	</h:form>
 </h:body>
