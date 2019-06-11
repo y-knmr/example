@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 import com.example.view.HelloPage;
-import com.example.view.IndexPage;
+import com.example.view.MenuPage;
 
 /**
  * ページオブジェクトをためすテストシナリオです。
@@ -17,7 +17,7 @@ import com.example.view.IndexPage;
  */
 public class ScenarioTest1 {
 
-	IndexPage indexPage = new IndexPage();
+	MenuPage indexPage = new MenuPage();
 
 	/**
 	 * メニュー画面の「簡単な画面へのリンク」押下のシナリオ
@@ -28,10 +28,12 @@ public class ScenarioTest1 {
 		open("http://localhost:8080/example");
 
 		HelloPage helloPage = indexPage.簡単な画面へのリンク();
-		System.out.println(helloPage.getTitleTagValue());
+
+		String actualTitle = helloPage.getTitleTagValue();
+		System.out.println("actualTitle=" + helloPage.getTitleTagValue());
 		
 		// 遷移した先の画面にHelloが表示されていることを確認
-		// assertThat(title()).isEqualTo("Hello");
+		assertThat(actualTitle).isEqualTo("Hello");
 	}
 
 }

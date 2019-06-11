@@ -1,5 +1,6 @@
 package com.example.view;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 import org.openqa.selenium.By;
