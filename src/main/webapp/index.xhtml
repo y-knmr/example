@@ -12,15 +12,19 @@
 
 <h:body>
 	<h:form id="indexForm" prependId="false">
-	<h:panelGrid id="indexGrid" columns="1" cellpadding="4">
-		<p:commandLink id="hello" action="#{index.hello}">
-			<h:outputText value="簡単な画面へのリンク" />
-		</p:commandLink>
-		
-		<p:commandLink id="todos" action="#{index.todos}">
-			<h:outputText value="そこそこ複雑な画面へのリンク" />
-		</p:commandLink>
-	</h:panelGrid>
+		<h:panelGrid id="indexGrid" columns="1" cellpadding="4">
+			<p:commandLink id="hello" action="#{index.hello}">
+				<h:outputText value="簡単な画面へのリンク" />
+			</p:commandLink>
+
+			<p:commandLink id="todos" action="#{index.todos}">
+				<h:outputText value="そこそこ複雑な画面へのリンク" />
+			</p:commandLink>
+
+			<p:commandLink id="dataTable" action="#{index.dataTable}">
+				<h:outputText value="データテーブルのサンプル" />
+			</p:commandLink>
+		</h:panelGrid>
 	</h:form>
 </h:body>
 

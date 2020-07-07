@@ -41,4 +41,9 @@ public class IndexBean {
 		System.out.println("called IndexBean#todos");
 		return "/app/todos.xhtml?faces-redirect=true";
 	}
+
+	public String dataTable() {
+		System.out.println("called dataTable");
+		return "/app/datatable.xhtml?faces-redirect=true";
+	}
 }
